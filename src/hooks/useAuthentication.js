@@ -27,7 +27,7 @@ export const useAuthentication = () => {
       return;
     }
   }
-
+  /* register */
   const createUser = async (data) => {
     checkiFisCancelled();
 
@@ -67,6 +67,13 @@ export const useAuthentication = () => {
     }
   };
 
+  /* logout */
+  const logout = () => {
+    checkiFisCancelled();
+
+    signOut(auth);
+  };
+
   useEffect(() => {
     return () => setCancelled(true);
   }, []);
@@ -76,5 +83,6 @@ export const useAuthentication = () => {
     createUser,
     error,
     loading,
+    logout,
   };
 };
